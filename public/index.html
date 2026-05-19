@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tareas | DevTeam Rosa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Gestión de Proyectos</h1>
+        <p>Sistema de control para equipos de desarrollo</p>
+    </header>
+
+    <main>
+        <section id="seccion-registro">
+            <button type="button" id="btn-toggle-registro" class="btn-seccion">
+                <span class="prefix">REGISTRO:</span> Nueva Tarea
+            </button>
+            
+            <div id="contenedor-formulario" class="desplegable">
+                <form id="task-form">
+                    
+                    <div class="user-info-section">
+                        <div class="form-group">
+                            <label for="usuario">Nombre del Usuario:</label>
+                            <input type="text" id="usuario" placeholder="Nombre de Usuario" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="titulo">Título de la tarea:</label>
+                        <input type="text" id="titulo" placeholder="Título de la tarea" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descripcion">Descripción detallada:</label>
+                        <textarea id="descripcion" placeholder="¿En qué consiste esta tarea?" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado">Estado actual:</label>
+                        <select id="estado">
+                            <option value="pendiente">Pendiente</option>
+                            <option value="en progreso">En Progreso</option>
+                            <option value="completada">Completada</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="btn-guardar">Guardar en Base de Datos</button>
+                </form>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="seccion-tablero">
+            <button type="button" id="btn-toggle-tablero" class="btn-seccion">
+                <span class="prefix">TABLERO:</span> Ver Tareas del Equipo
+            </button>
+            
+            <div id="contenedor-tablero" class="desplegable">
+                <div id="lista-tareas" class="contenedor-grid">
+                    <p class="mensaje-carga">Conectando con el servidor...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Proyecto de Gestión Escolar y Empresarial</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
