@@ -1,4 +1,4 @@
-import { Project } from '../models/Project.js';
+import  Project  from '../models/Project.js';
 
 //Crear el proyecto (POST)
 export const crearProyecto = async (req, res) => {
