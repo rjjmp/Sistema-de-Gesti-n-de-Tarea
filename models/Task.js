@@ -1,27 +1,26 @@
 import { Schema, model } from 'mongoose';
 
 const taskSchema = new Schema({
-  // Título: Campo obligatorio
-  título: { 
+
+  titulo: { 
     type: String, 
     required: [true, 'El título de la tarea es obligatorio'],
     trim: true 
   },
   
-  // Descripción: Campo obligatorio
-  descripción: { 
+
+  descripcion: { 
     type: String,
     required: [true, 'La descripción es obligatoria']
   },
 
-  // NUEVO CAMPO: Nombre del usuario que crea la tarea
+  // Nombre del usuario 
   usuario: {
     type: String,
     required: [true, 'El nombre de usuario es obligatorio'],
     trim: true
   },
   
-  // Estado: Solo acepta los valores definidos
   estado: { 
     type: String, 
     enum: {
@@ -31,12 +30,19 @@ const taskSchema = new Schema({
     default: 'pendiente' 
   },
   
-  fechaCreación: { 
+  // relación con el Proyecto para que no quede huérfana
+  proyecto: {
+    type: Schema.Types.ObjectId,
+    ref: 'Project',
+    required: false
+  },
+  
+  fechaCreacion: { 
     type: Date, 
     default: Date.now 
   },
   
-  fechaLímite: { 
+  fechaLimite: { 
     type: Date 
   },
   
@@ -47,8 +53,10 @@ const taskSchema = new Schema({
     required: false 
   }
 }, { 
-  // Añade automáticamente campos de auditoría (createdAt, updatedAt)
+  // campos de auditoría (createdAt, updatedAt)
   timestamps: true 
 });
 
-export const Task = model('Task', taskSchema);
+// Cambiado a export default 
+const Task = model('Task', taskSchema);
+export default Task;
