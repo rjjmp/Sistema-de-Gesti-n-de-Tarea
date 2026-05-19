@@ -1,5 +1,5 @@
-import { Task } from '../models/task.js';
-import { Project } from '../models/Project.js';
+import  Task  from '../models/task.js';
+import  Project  from '../models/Project.js';
 
 //CREAR UNA NUEVA TAREA
 export const crearTarea = async (req, res) => {
